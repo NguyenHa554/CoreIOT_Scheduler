@@ -1,4 +1,4 @@
-#define LED_PIN 48
+#define LED_PIN 2
 #define SDA_PIN GPIO_NUM_11
 #define SCL_PIN GPIO_NUM_12
 
@@ -10,10 +10,10 @@
 #include <ArduinoOTA.h>
 #include "scheduler.h"
 
-constexpr char WIFI_SSID[] = "abcd";
-constexpr char WIFI_PASSWORD[] = "123456789";
+constexpr char WIFI_SSID[] = "ACLAB";
+constexpr char WIFI_PASSWORD[] = "ACLAB2023";
 
-constexpr char TOKEN[] = "7s5pokn2se622pzn1jxu";
+constexpr char TOKEN[] = "64oj5zft2oqu20qx8zxf";
 
 constexpr char THINGSBOARD_SERVER[] = "app.coreiot.io";
 constexpr char DEVICE_PROFILE[] = "Temperature Sensor";
@@ -144,11 +144,11 @@ void setup() {
   delay(1000);
   //InitWiFi();
 
-  Wire.begin(SDA_PIN, SCL_PIN);
+  Wire.begin();
   dht20.begin();
   SCH_Init();
-  SCH_Add_Task(task1, 200, 200);
-  SCH_Add_Task(task2, 100, 500);
+  // SCH_Add_Task(task1, 200, 200);
+  // SCH_Add_Task(task2, 100, 500);
   SCH_Add_Task(task3, 1000, 10000);
 }
 void loop() {
